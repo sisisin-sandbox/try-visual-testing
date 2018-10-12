@@ -1,0 +1,21 @@
+{
+  "core": {
+    "workingDir": ".reg",
+    "actualDir": "directory_contains_actual_images",
+    "threshold": 0,
+    "addIgnore": true,
+    "thresholdRate": 0,
+    "ximgdiff": {
+      "invocationType": "client"
+    }
+  },
+  "plugins": {
+    "reg-keygen-git-hash-plugin": true,
+    "reg-notify-github-plugin": {
+      "clientId": "MzQ1MrM0MjMz1i8pqtQtyywuTczRLUktLsnMS9c3tjA0NDTSL84EwTzd4sS8lKT8CgA="
+    },
+    "reg-publish-s3-plugin": {
+      "bucketName": "sisisin-snapshot-test"
+    }
+  }
+}
