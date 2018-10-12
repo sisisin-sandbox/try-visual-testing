@@ -7,32 +7,21 @@ workflows:
 jobs:
   test:
     docker:
-      - image: regviz/node-xcb
+      - image: sisisin/try-vt-ci:20181012-142742
 
     working_directory: ~/repo
 
     steps:
       - checkout
-
-      - run: apt-get update && apt-get install apt-transport-https
-      - run:
-          name: setup yarn
-          command: |
-            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-            echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-            apt-get update && apt-get install yarn=1.10.1-1
-
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "yarn.lock" }}
           - v1-dependencies-
-
       - run: yarn install
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
-
       - run: git diff --exit-code # check yarn.lock diff
       - run: yarn test
       - run: yarn test-visual
