@@ -12,13 +12,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "pretest-visual": "npm run snapshot",
     "test-visual": "reg-suit run",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "snapshot": "zisui --serverCmd \"npm run storybook\" http://localhost:9009 -o directory_contains_actual_images"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
