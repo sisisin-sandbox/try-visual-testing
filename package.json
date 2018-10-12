@@ -12,7 +12,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test-visual": "reg-suit run"
+    "test-visual": "reg-suit run",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "snapshot": "zisui --serverCmd \"npm run storybook\" http://localhost:9009 -o directory_contains_actual_images"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,9 +27,16 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/addon-links": "^3.4.11",
+    "@storybook/addons": "^3.4.11",
+    "@storybook/react": "^3.4.11",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
     "reg-keygen-git-hash-plugin": "^0.7.6",
     "reg-notify-github-plugin": "^0.7.6",
     "reg-publish-s3-plugin": "^0.7.10",
-    "reg-suit": "^0.7.14"
+    "reg-suit": "^0.7.14",
+    "zisui": "^1.2.2"
   }
 }
